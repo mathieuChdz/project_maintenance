@@ -42,7 +42,7 @@ public class AreaTest {
     }
 
     @Test
-    public final void testDeleteAreaAreaList() {$
+    public final void testDeleteAreaAreaList() {
         AreaList areaList = new AreaList();
         Area area = new Area(20, 30, "A","Area 1");
         areaList.addArea(area);
