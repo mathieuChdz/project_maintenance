@@ -1,4 +1,4 @@
-package layer_area;
+ package layer_area;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import shape.Shape;
 public class Layer {
 
     public ArrayList<Layer> listLayers;
-    public HashMap<Layer, Shape> mapShapes;
+    public HashMap<int, ArrayList<Shape>> mapShapes;
     public int id;
     public String name;
     public boolean visible;
@@ -37,21 +37,31 @@ public class Layer {
         return false;
     }
 
-    public void add_shape_to_layer(Shape parShape, Layer parLayer){
+    public void add_shape_to_layer(Shape parShape, int parLayerId){
         // je ne suis pas sur de si il faut deja avoir créer la shape ou si il faut faire un new shape
         // sinon : 
         // Shape new_shape = new Shape(int parId, float parThickness, int parX, int parY, Color parColor);
         // listShapes.add(new_shape);
-        mapShapes.put(parLayer, parShape);
+        if (mapShapes.containsKey(parLayerId)){
+            mapShapes.get(parLayerId).add(parShape);
+        }
+        else {
+            ArrayList<Shape> listShape = new ArrayList<>();
+            listShape.add(parShape);
+            mapShapes.put(parLayerId,listShape);
+        }
+        //mapShapes.put(parLayerId, parShape);
     }
 
     public boolean delete_shape_to_layer(int parId){
-        for (Layer layer : mapShapes.keySet()) {
-            Shape shape = mapShapes.get(layer);
-            if (shape.getId() == parId) {
-                mapShapes.remove(layer);
-                return true;
-            }
+        for (int layerId : mapShapes.keySet()) {
+            ArraList listShape = mapShapes.get(layerId);
+            for (Shape shape : listShape) {
+                Shape shape = mapShapes.get(layerId);
+                if (shape.getId() == parId) {
+                    mapShapes.get(layerId).remove(shape);
+                    return true;
+                }
         }
         return false;
     }
@@ -66,10 +76,12 @@ public class Layer {
     }
 
     public boolean set_shape_visibility(int parShapeId){
-        for (Shape shape : mapShapes.values()) {
-            if (shape.getId() == parShapeId) {
-                shape.set_shape_visibility();
-                return true;
+        for (ArrayList listShape : mapShapes.values()) {
+            for (Shape shape : listShape){
+                if (shape.getId() == parShapeId) {
+                    shape.set_shape_visibility();
+                    return true;
+                }
             }
         }
         return false;

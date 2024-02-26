@@ -10,7 +10,15 @@ public class Rectangle extends Shape{
         widht = parWidht;
         height = parHeight;
     }
-    
+
+
+    public String toString(){
+        String str;
+        str = "Rec"+ getX()+":"+getY() + "W-H:" + widht + ":" + height;
+    }
+
+
+
     public int getWidht(){
         return widht;
     }

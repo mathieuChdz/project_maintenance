@@ -8,7 +8,11 @@ public class Circle extends Shape{
         super(parId, parThickness, parX, parY, parColor);
         radius = parRadius;
     }
-    
+
+    public String toString(){
+        String str;
+        str = "Circle "+ getX()+":"+getY() + "rad:" +radius;
+    }
 
     public int getId(){
         return id;

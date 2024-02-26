@@ -8,7 +8,13 @@ public class Square extends Shape{
         super(parId, parThickness, parX, parY, parColor);
         lenght = parLenght;     
     }
-    
+
+    public String toString(){
+        String str;
+        str = "Square"+ getX()+":"+getY() + "lenght: " + lenght;
+    }
+
+
     public int getLenght(){
         return lenght;
     }
