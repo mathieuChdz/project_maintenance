@@ -10,13 +10,13 @@ public abstract class Shape{
     public Color color;
 
 
-    public Shape(int parId, float parThickness, int parX, int parY, Color parColor){
+    public Shape(int parId, float parThickness, int parX, int parY){
         id = parId;
         thickness = parThickness;
-        visible = false; //pas visible de base
+        visible = true; //visible de base
         x = parX;
         y = parY;
-        color = parColor;
+        color = null;
         //pour x, y et color, on peut faire une classe Pixel avec ces attributs dedans, mais je préfère comme cela
     }
 

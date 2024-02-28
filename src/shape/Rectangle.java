@@ -5,8 +5,8 @@ public class Rectangle extends Shape{
     public int widht;
     public int height;
 
-    public Rectangle(int parId, float parThickness, boolean parVisible, int parX, int parY, Color parColor, int parWidht, int parHeight) {
-        super(parId, parThickness, parX, parY, parColor);
+    public Rectangle(int parId, int parX, int parY, int parWidht, int parHeight) {
+        super(parId, 1, parX, parY);
         widht = parWidht;
         height = parHeight;
     }
@@ -15,6 +15,7 @@ public class Rectangle extends Shape{
     public String toString(){
         String str;
         str = "Rec"+ getX()+":"+getY() + "W-H:" + widht + ":" + height;
+        return str;
     }
 
 
