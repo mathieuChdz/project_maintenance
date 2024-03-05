@@ -14,7 +14,7 @@ public class Rectangle extends Shape{
 
     public String toString(){
         String str;
-        str = "Rec"+ getX()+":"+getY() + "W-H:" + widht + ":" + height;
+        str = getId()+" Rec"+ getX()+":"+getY() + "W-H:" + widht + ":" + height;
         return str;
     }
 

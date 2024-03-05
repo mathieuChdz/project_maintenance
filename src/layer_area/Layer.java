@@ -139,7 +139,14 @@ public class Layer {
     public boolean getVisible(){
         return visible;
     }
+    public String toString(){
+        String str;
+        str = getId()+" Layer " + getName();
+        return str;
+    }
+
     public void getListShape(){
+        System.out.println("----- "+this.getName()+" -----");
         for (Shape shape : listShapes) {
             System.out.println(shape.toString());
         }

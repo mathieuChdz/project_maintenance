@@ -15,7 +15,7 @@ public class Curve extends Shape{
 
     public String toString(){
         String str;
-        str = "Curve "+ "p1 : " + getX()+"/"+getY() + " --- p2 : " + p1.getX()+"/"+p1.getY() + " --- p3 : " + p2.getX()+"/"+p2.getY() + " --- p4 : " + p3.getX()+"/"+p3.getY();
+        str = getId()+" Curve "+ "p1 : " + getX()+"/"+getY() + " --- p2 : " + p1.getX()+"/"+p1.getY() + " --- p3 : " + p2.getX()+"/"+p2.getY() + " --- p4 : " + p3.getX()+"/"+p3.getY();
         return str;
     }
 

@@ -1,5 +1,7 @@
 package layer_area;
 
+import shape.Shape;
+
 import java.util.ArrayList;
 
 public class Area {
@@ -44,6 +46,13 @@ public class Area {
             }
         }
         return false;
+    }
+
+    public void getListLayer(){
+        System.out.println("----- "+this.getName()+" -----");
+        for (Layer layer : listLayers) {
+            System.out.println(layer.toString());
+        }
     }
 
     public int getWidht(){

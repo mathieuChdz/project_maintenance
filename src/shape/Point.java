@@ -10,7 +10,7 @@ public class Point extends Shape{
 
     public String toString(){
         String str;
-        str = "Point "+ getX()+":"+getY();
+        str = getId()+" Point "+ getX()+":"+getY();
         return str;
     }
 

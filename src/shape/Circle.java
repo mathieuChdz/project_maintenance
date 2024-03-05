@@ -11,7 +11,7 @@ public class Circle extends Shape{
 
     public String toString(){
         String str;
-        str = "Circle "+ getX()+":"+getY() + " rad:" +radius;
+        str = getId()+" Circle "+ getX()+":"+getY() + " rad:" +radius;
         return str;
     }
 

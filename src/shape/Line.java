@@ -13,7 +13,7 @@ public class Line extends Shape{
 
     public String toString(){
         String str;
-        str = "Line "+ "p1:" + x2+":"+y2 + " p2:" + getX()+":"+getY();
+        str = getId()+" Line "+ "p1:" + x2+":"+y2 + " p2:" + getX()+":"+getY();
         return str;
     }
 
