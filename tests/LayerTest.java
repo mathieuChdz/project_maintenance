@@ -44,7 +44,7 @@ public class LayerTest {
 
     @Test
     public void testSetShapeVisibility() {
-        Line line = new Line(1, 4,7, new Point(2,3,3));
+        Line line = new Line(1, 4,7, 2,3);
         assertEquals(true, line.getVisible());
         line.set_shape_visibility();
         assertEquals(false, line.getVisible());

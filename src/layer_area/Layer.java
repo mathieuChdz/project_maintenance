@@ -139,5 +139,11 @@ public class Layer {
     public boolean getVisible(){
         return visible;
     }
+    public void getListShape(){
+        for (Shape shape : listShapes) {
+            System.out.println(shape.toString());
+        }
+    }
+
 
 }

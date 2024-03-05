@@ -11,7 +11,7 @@ public class Square extends Shape{
 
     public String toString(){
         String str;
-        str = "Square"+ getX()+":"+getY() + "lenght: " + lenght;
+        str = "Square "+ getX()+":"+getY() + " lenght:" + lenght;
         return str;
     }
 

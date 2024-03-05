@@ -2,22 +2,24 @@ package shape;
 
 public class Line extends Shape{
 
-    Point p1;
+    int x2;
+    int y2;
 
-    public Line(int parId, int parX, int parY,  Point parP1) {
+    public Line(int parId, int parX, int parY,  int parX2, int parY2) {
         super(parId, 1, parX, parY);
-        p1 = parP1;
+        x2 = parX2;
+        y2 = parY2;
     }
 
     public String toString(){
         String str;
-        str = "Line"+ "p1:" + p1.getX()+":"+p1.getY() + "p2:" + getX()+":"+getY();
+        str = "Line "+ "p1:" + x2+":"+y2 + " p2:" + getX()+":"+getY();
         return str;
     }
 
 
-    public Point getP1(){
+    /*public Point getP1(){
         return p1;
-    }
+    }*/
 
 }

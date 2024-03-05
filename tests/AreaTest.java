@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import layer_area.Area;
 import layer_area.Layer;
 import org.junit.Test;
-import org.testng.AssertJUnit;
+//import org.testng.AssertJUnit;
 import shape.Square;
 
 import java.awt.*;
