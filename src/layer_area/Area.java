@@ -2,6 +2,9 @@ package layer_area;
 
 import shape.Shape;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Area {
@@ -57,6 +60,39 @@ public class Area {
         }
         return null;
     }
+
+    public void draw(){
+
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("draw.txt"));
+
+            writer.write(this.getName() + " (" + this.getWidht() + "x" + this.getHeight() + ") \n");
+            for (Layer l : this.listLayers){
+                if (l.getVisible()){
+                    writer.write("|--->" + l.name + "\n");
+
+                    for (Shape s: l.getListShapes()){
+
+                        if (s.getVisible()){
+                            writer.write("|------>" + s.toString() + "\n");
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+
+        }
+
+    }
+
 
     public Layer getLayerLast(){
         return listLayers.get(listLayers.size()-1);

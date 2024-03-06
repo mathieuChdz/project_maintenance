@@ -145,12 +145,17 @@ public class Layer {
         return str;
     }
 
-    public void getListShape(){
+    public void printListShape(){
         System.out.println("----- "+this.getName()+" -----");
         for (Shape shape : listShapes) {
             System.out.println(shape.toString());
         }
     }
+
+    public ArrayList<Shape> getListShapes(){
+        return listShapes;
+    }
+
 
 
 }

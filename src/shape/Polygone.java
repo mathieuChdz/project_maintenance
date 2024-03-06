@@ -26,12 +26,12 @@ public class Polygone extends Shape{
 
     public String toString(){
         String str;
-        str = getId()+" Polygon "+ "p1 : " + getX()+"/"+getY() + " --- p2 : " + p2.getX()+"/"+p2.getY() + " --- p3 : " + p3.getX()+"/"+p3.getY();
+        str = getId()+" Polygon "+ "p1: " + getX()+":"+getY() + " --- p2: " + p2.getX()+":"+p2.getY() + " --- p3: " + p3.getX()+":"+p3.getY();
 
         for (int i = 0; i < listPoints.size(); i++) {
 
 
-            str+=" --- p" + i+3 + " :  "+ Integer.valueOf(listPoints.get(i).getX())+"/"+Integer.valueOf(listPoints.get(i).getY());
+            str+="p" + Integer.valueOf(i+3) + ": "+ Integer.valueOf(listPoints.get(i).getX())+":"+Integer.valueOf(listPoints.get(i).getY());
 
 
         }

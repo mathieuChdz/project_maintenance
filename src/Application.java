@@ -26,6 +26,7 @@ public class Application {
 
 
         while (run){
+            area1.draw();
             System.out.print("Commande : ");
             String shape = scanner.nextLine();
 
@@ -39,7 +40,7 @@ public class Application {
                 }
 
                 else if (Objects.equals(valeurs[0], "list")){
-                    layer_actu.getListShape();
+                    layer_actu.printListShape();
                 }
 
                 else if (Objects.equals(valeurs[0], "help")){
@@ -49,7 +50,7 @@ public class Application {
                             "layer \033[3mnom_du_layer\033[0m : Création d'un nouveau layer\n" +
                             "delete layer \033[3mlayer_id\033[0m : Suppression d'un layer choisi\n" +
                             "select layer \033[3mlayer_id\033[0m : Choix du layer à utiliser\n" +
-                            "visibility layer \033[3mlayer_id\033[0m : Changement de la visibilité d'un layer choisi\n\n" +
+                            "visibility layer \033[3mlayer_id\033[0m change : Changement de la visibilité d'un layer choisi\n\n" +
                             "---------------- SHAPES ----------------\n" +
                             "point \033[3mx y\033[0m : Création d'un point\n" +
                             "line \033[3mx1 y1 x2 y2\033[0m : Création d'une ligne\n" +
@@ -59,7 +60,7 @@ public class Application {
                             "curve \033[3mx1 y1 x2 y2 x3 y3 x4 y4\033[0m : Création d'une courbe\n" +
                             "polygon \033[3mx1 y1 x2 y2 x3 y3 ...\033[0m : Création d'un polygone\n" +
                             "delete shape \033[3mshape_id\033[0m : Suppression d'une shape choisie\n" +
-                            "visibility shape \033[3mshape_id\033[0m : Changement de la visibilité d'une shape choisie\n\n" +
+                            "visibility shape \033[3mshape_id\033[0m change : Changement de la visibilité d'une shape choisie\n\n" +
                             "---------------- DIVERS ----------------\n" +
                             "list : liste des shapes du layer actuel\n" +
                             "list layer : liste des layers existants\n" +
@@ -339,35 +340,7 @@ public class Application {
         scanner.close();
 
 
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("résumé.txt"));
 
-
-
-            writer.write(area1.name + "\n");
-            for (Layer l : area1.listLayers){
-                if (l.getVisible()){
-                    writer.write("|--->" + l.name + "\n");
-
-                    for (Shape s: l.listShapes){
-
-                        if (s.getVisible()){
-                            writer.write("|------>" + s.toString() + "\n");
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-
-            writer.close();
-            System.out.println("Contenu écrit avec succès dans le fichier.");
-        } catch (IOException e) {
-            System.out.println("Une erreur s'est produite lors de l'écriture dans le fichier : " + e.getMessage());
-        }
 
 
 
