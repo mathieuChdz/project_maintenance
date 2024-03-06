@@ -48,6 +48,24 @@ public class Area {
         return false;
     }
 
+    public Layer getLayer(int parId){
+        for (int i=0; i<listLayers.size(); i++){
+            Layer layer_actu = listLayers.get(i);
+            if (parId == layer_actu.getId()){
+                return layer_actu;
+            }
+        }
+        return null;
+    }
+
+    public Layer getLayerLast(){
+        return listLayers.get(listLayers.size()-1);
+    }
+
+    public int getLayerListLenght(){
+        return listLayers.size();
+    }
+
     public void getListLayer(){
         System.out.println("----- "+this.getName()+" -----");
         for (Layer layer : listLayers) {

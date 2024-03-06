@@ -6,6 +6,10 @@ public class Point extends Shape{
         super(parId, 1, parX, parY);
     }
 
+    public Point(int parX, int parY) {
+        super(1, parX, parY);
+    }
+
 
 
     public String toString(){

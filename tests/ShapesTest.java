@@ -30,7 +30,7 @@ public class ShapesTest {
 
     @Test
     public final void testCreateLine() {
-        Line line = new Line(1, 2,7, new Point(2,6,3));
+        Line line = new Line(1, 2,7, 6,3);
         assertEquals(1, line.getId());
         assertEquals(2, line.getX());
         assertEquals(7, line.getY());
@@ -104,23 +104,21 @@ public class ShapesTest {
 
     @Test
     public final void testCreateCurve() {
-        Point p2 = new Point(2,1,4);
-        Point p3 = new Point(3,5,4);
-        Point p4 = new Point(4,9,2);
-        Curve curve = new Curve(1,2,2, p2, p3, p4);
+        Curve curve = new Curve(1,2,2, 1,4,5,4,9,2);
 
         assertEquals(1, curve.getId());
-        assertEquals(2, curve.getX());
-        assertEquals(2, curve.getY());
 
-        assertEquals(1, curve.getP1().getX());
-        assertEquals(4, curve.getP1().getY());
+        assertEquals(2, curve.getP1().getX());
+        assertEquals(2, curve.getP1().getY());
 
-        assertEquals(5, curve.getP2().getX());
+        assertEquals(1, curve.getP2().getX());
         assertEquals(4, curve.getP2().getY());
 
-        assertEquals(9, curve.getP3().getX());
-        assertEquals(2, curve.getP3().getY());
+        assertEquals(5, curve.getP3().getX());
+        assertEquals(4, curve.getP3().getY());
+
+        assertEquals(9, curve.getX());
+        assertEquals(2, curve.getY());
 
 //        System.out.println(curve.toString());
     }
