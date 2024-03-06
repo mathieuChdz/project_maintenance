@@ -4,6 +4,9 @@ import java.util.Scanner;
 import shape.*;
 import layer_area.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Application {
 
@@ -334,6 +337,61 @@ public class Application {
         }
 
         scanner.close();
+
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("résumé.txt"));
+
+
+
+            writer.write(area1.name + "\n");
+            for (Layer l : area1.listLayers){
+                if (l.getVisible()){
+                    writer.write("|--->" + l.name + "\n");
+
+                    for (Shape s: l.listShapes){
+
+                        if (s.getVisible()){
+                            writer.write("|------>" + s.toString() + "\n");
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+            writer.close();
+            System.out.println("Contenu écrit avec succès dans le fichier.");
+        } catch (IOException e) {
+            System.out.println("Une erreur s'est produite lors de l'écriture dans le fichier : " + e.getMessage());
+        }
+
+
+
+//        System.out.println(area1.name);
+//        for (Layer l : area1.listLayers){
+//            if (l.getVisible()){
+//                System.out.println("|--->" + l.name);
+//
+//                for (Shape s: l.listShapes){
+//
+//                    if (s.getVisible()){
+//                        System.out.println("|------>" + s.toString());
+//
+//                    }
+//
+//                }
+//
+//            }
+//
+//        }
+
+
+
+
     }
 
 }
