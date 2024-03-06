@@ -22,7 +22,7 @@ public class Application {
 
 
         while (run){
-            System.out.print("Command : ");
+            System.out.print("Commande : ");
             String shape = scanner.nextLine();
 
             String[] valeurs = shape.split(" ");
@@ -54,7 +54,12 @@ public class Application {
                             "rectangle \033[3mx y widht height\033[0m : Création d'un rectangle\n" +
                             "curve \033[3mx1 y1 x2 y2 x3 y3 x4 y4\033[0m : Création d'une courbe\n" +
                             "delete shape \033[3mshape_id\033[0m : Suppression d'une shape choisie\n" +
-                            "visibility shape \033[3mshape_id\033[0m : Changement de la visibilité d'une shape choisie"
+                            "visibility shape \033[3mshape_id\033[0m : Changement de la visibilité d'une shape choisie\n\n" +
+                            "---------------- DIVERS ----------------\n" +
+                            "list : liste des shapes du layer actuel\n" +
+                            "list layer : liste des layers existants\n" +
+                            "stop : quitte l'application\n"
+
                     );
                 }
 
