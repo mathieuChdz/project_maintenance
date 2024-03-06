@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 import shape.*;
@@ -53,6 +54,7 @@ public class Application {
                             "square \033[3mx y lenght\033[0m : Création d'un carré\n" +
                             "rectangle \033[3mx y widht height\033[0m : Création d'un rectangle\n" +
                             "curve \033[3mx1 y1 x2 y2 x3 y3 x4 y4\033[0m : Création d'une courbe\n" +
+                            "polygon \033[3mx1 y1 x2 y2 x3 y3 ...\033[0m : Création d'un polygone\n" +
                             "delete shape \033[3mshape_id\033[0m : Suppression d'une shape choisie\n" +
                             "visibility shape \033[3mshape_id\033[0m : Changement de la visibilité d'une shape choisie\n\n" +
                             "---------------- DIVERS ----------------\n" +
@@ -259,17 +261,75 @@ public class Application {
                 }
             }
 
+            else if (valeurs.length >= 7 && valeurs.length%2 == 1 && !Objects.equals(valeurs[0], "curve")) {
+
+                if (Objects.equals(valeurs[0], "polygon")) {
+
+                    String retour ="Shape:" + valeurs[0] + " id:"+shape_id+" x1:"+valeurs[1]+ " y1:"+valeurs[2] + " x2:"+valeurs[3]+ " y2:"+valeurs[4]+
+                            " x3:"+valeurs[5]+ " y3:"+valeurs[6];
+
+
+                    for (int i = 7; i < valeurs.length; i++) {
+
+                        if (i%2 == 1){
+                            retour += " x" + Integer.valueOf((i+1)/2) + ":" + Integer.valueOf(valeurs[i]);
+                        }
+                        else{
+                            retour += " y" + Integer.valueOf(i/2) + ":" + Integer.valueOf(valeurs[i]);
+                        }
+
+                    }
+                    System.out.println(retour);
+
+
+                    Integer[] params = new Integer[valeurs.length-7];
+
+                    int i =0;
+                    for (int s = 7; s < valeurs.length; s++) {
+
+                        params[i] = (Integer.valueOf(s));
+                        i+=1;
+                    }
+
+
+                    Polygone polygone = new Polygone(shape_id,Integer.valueOf(valeurs[2]),Integer.valueOf(valeurs[2]),Integer.valueOf(valeurs[3]),
+                            Integer.valueOf(valeurs[4]),Integer.valueOf(valeurs[5]),Integer.valueOf(valeurs[6]), params);
+
+                    layer_actu.add_shape_to_list(polygone);
+                    shape_id++;
+                }
+
+                else {
+                    System.out.println("Mauvaise commande --> Tapez help pour afficher toutes les commandes");
+                }
+
+            }
+
+
             else if (valeurs.length == 9){
                 if (Objects.equals(valeurs[0], "curve")){
                     //considerer les shapes curve (car quand on créer curve on fait : curve x1 y1 x2 y2 x3 y3 x4 y4 (donc 9 'mots')
                     System.out.println("Shape:" + valeurs[0] + " id:"+shape_id+" x1:"+valeurs[1]+ " y1:"+valeurs[2] + " x2:"+valeurs[3]+ " y2:"+valeurs[4]+
-                                                                               " x1:"+valeurs[5]+ " y1:"+valeurs[6] + " x2:"+valeurs[7]+ " y2:"+valeurs[8]);
+                                                                               " x3:"+valeurs[5]+ " y3:"+valeurs[6] + " x4:"+valeurs[7]+ " y4:"+valeurs[8]);
                     Curve curve = new Curve(shape_id,Integer.valueOf(valeurs[1]),Integer.valueOf(valeurs[2]),Integer.valueOf(valeurs[3]),Integer.valueOf(valeurs[4]),
                                                      Integer.valueOf(valeurs[5]),Integer.valueOf(valeurs[6]),Integer.valueOf(valeurs[7]),Integer.valueOf(valeurs[8]));
                     layer_actu.add_shape_to_list(curve);
                     shape_id++;
                 }
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
